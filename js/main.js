@@ -2,9 +2,13 @@ require.config({
   paths: {
     'jquery': 'libs/jquery/jquery.min',
     'underscore': 'libs/underscore/underscore',
-    'backbone': 'libs/backbone/backbone'
+    'backbone': 'libs/backbone/backbone',
+    'i18n': 'libs/require-i18n/i18n',
   },
   shim: {
+    'jquery': {
+      exports: '$'
+    },
     'underscore': {
       exports: '_'
     },
@@ -15,8 +19,8 @@ require.config({
   }
 });
 
-define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
-  $(document).ready(function () {
-    $('#message').text('Hello There.');
-  });
+define(['jquery', 'underscore', 'backbone', 'i18n'], function ($, _, Backbone, I18n) {
+  require(['app'], function (App) {
+    App.initialize();
+  })
 });
