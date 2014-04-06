@@ -1,5 +1,5 @@
-define([], function () {
-  var tpl = _.template('Hi <%= name %>, welcome to my project.');
+define(['i18n!nls/app'], function (I18n) {
+  var tpl = _.template(I18n.message.hello);
   return {
     initialize: function () {
       $(document).ready(function () {
